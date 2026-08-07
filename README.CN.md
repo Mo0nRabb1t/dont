@@ -46,25 +46,30 @@ D.O.N.T 仅用于开发类想法的决策与需求澄清。流程结束（产出
 
 ## 安装
 
-D.O.N.T 遵循通用的 SKILL.md 规范，可被多种智能体使用。将 `dont` 目录放入你的智能体（Agent）的 skills 目录即可，具体路径取决于你所使用的智能体。
+D.O.N.T 遵循通用的 SKILL.md 规范，可被多种智能体使用。请在**仓库根目录**执行以下命令，并将 `<skills目录>` 替换为你所用智能体的 skills 目录（常见位置：Windows 为 `%USERPROFILE%\.codex\skills`，macOS/Linux 为 `~/.codex/skills`）。
 
-Windows：
+Windows - 复制：
 
 ```powershell
-Copy-Item -Recurse dont "<skills目录>"
+New-Item -ItemType Directory -Path "<skills目录>" -Force | Out-Null
+Copy-Item -Recurse .\dont "<skills目录>"
 ```
 
-也可以使用目录联接（源目录保留在仓库中，方便后续通过 git 更新）：
+Windows - 目录联接（源目录保留在仓库中，方便后续通过 git 更新）：
 
 ```powershell
+New-Item -ItemType Directory -Path "<skills目录>" -Force | Out-Null
 New-Item -ItemType Junction -Path "<skills目录>\dont" -Target (Join-Path (Get-Location) 'dont')
 ```
 
 macOS / Linux：
 
 ```bash
-cp -r dont <skills目录>/
+mkdir -p <skills目录>
+cp -r ./dont <skills目录>/
 ```
+
+验证安装：Windows 用 `Test-Path "<skills目录>\dont\SKILL.md"`，macOS/Linux 用 `ls <skills目录>/dont/SKILL.md`。
 
 ## 使用
 

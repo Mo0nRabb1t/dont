@@ -46,25 +46,30 @@ Highlights:
 
 ## Installation
 
-D.O.N.T follows the standard SKILL.md spec and can be used by multiple agents. Put the `dont` directory into your agent's skills directory; the exact path depends on the agent you use.
+D.O.N.T follows the standard SKILL.md spec and can be used by multiple agents. Run the commands below from the repository root, and replace `<skills-dir>` with the skills directory of the agent you use (a common layout is `%USERPROFILE%\.codex\skills` on Windows, or `~/.codex/skills` on macOS/Linux).
 
-Windows:
+Windows - copy:
 
 ```powershell
-Copy-Item -Recurse dont "<skills-dir>"
+New-Item -ItemType Directory -Path "<skills-dir>" -Force | Out-Null
+Copy-Item -Recurse .\dont "<skills-dir>"
 ```
 
-Or use a directory junction (keeps the source in the repo, so it stays in sync with git):
+Windows - directory junction (keeps the source in the repo, so it stays in sync with git):
 
 ```powershell
+New-Item -ItemType Directory -Path "<skills-dir>" -Force | Out-Null
 New-Item -ItemType Junction -Path "<skills-dir>\dont" -Target (Join-Path (Get-Location) 'dont')
 ```
 
 macOS / Linux:
 
 ```bash
-cp -r dont <skills-dir>/
+mkdir -p <skills-dir>
+cp -r ./dont <skills-dir>/
 ```
+
+Verify the install: `Test-Path "<skills-dir>\dont\SKILL.md"` on Windows, or `ls <skills-dir>/dont/SKILL.md` on macOS/Linux.
 
 ## Usage
 
