@@ -1,0 +1,4 @@
+interface:
+  display_name: "D.O.N.T"
+  short_description: "Do or Not To - clarify dev ideas; advise build, adapt, or skip."
+  default_prompt: "Use $dont to analyze and clarify my development idea."
