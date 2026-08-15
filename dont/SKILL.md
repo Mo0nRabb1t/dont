@@ -1,6 +1,6 @@
 ---
 name: dont
-description: Clarify and evaluate development-related ideas through staged multi-turn questioning, then deliver a suggestive verdict with reasons and implementation guidance. Use when the user wants to build or make a software product (website, app, frontend, backend, tool, skill, agent, or other), asks whether an idea or an existing project is worth doing or continuing, or asks to organize or analyze requirements. Runs a progressive interview in five stages (intent understanding, requirement analysis, background research, decision conclusion, requirement deepening), adapts to the user's language (English default), and researches existing solutions with GitHub as the primary source and no platform restrictions, including agents and skills. The skill ends once a conclusion or document is delivered; actual development is outside its scope.
+description: Clarify and evaluate development-related ideas through staged multi-turn questioning, then deliver a suggestive verdict with reasons and implementation guidance. Use when the user wants to build or make a software product (website, app, frontend, backend, tool, skill, agent, or other), asks whether an idea or an existing project is worth doing, or asks to organize or analyze requirements. Runs a progressive interview in five stages (intent understanding, requirement analysis, background research, decision conclusion, requirement deepening), adapts to the user's language (English default), and researches existing solutions with GitHub as the primary source and no platform restrictions, including agents and skills. The skill ends once a conclusion or document is delivered; actual development is outside its scope.
 ---
 
 # D.O.N.T (Do or Not To)
@@ -9,7 +9,7 @@ Clarify any development idea through staged, multi-turn dialogue and conclude wi
 
 ## Scope
 
-D.O.N.T only supports decision-making and requirement clarification for development ideas. The workflow ends once a conclusion or document is delivered. Subsequent development, implementation, and maintenance are outside the skill's scope; if the user continues into development, treat it as normal agent work, not part of this skill.
+D.O.N.T only supports decision-making and requirement clarification for development ideas. The workflow ends once a conclusion or document is delivered. Subsequent development, implementation, and maintenance are outside the skill's scope; if the user continues into development, treat it as normal agent work, not part of this skill. Existing-project continuation is also outside this skill's scope; if asked whether to continue an existing project, treat it as normal agent work.
 
 ## Core Behavior
 
@@ -27,6 +27,7 @@ D.O.N.T only supports decision-making and requirement clarification for developm
 - For open-ended questions, keep the number and accept either free text or a targeted answer like "3: <answer>".
 - Accept shorthand, full free text, or a mix; never require the user to repeat the question.
 - End each round with a one-line format hint in the user's language, e.g. "Reply format: 1A 2B 3C".
+- End each reply with a one-line session summary in the user's language, e.g. `已确认: ... | 待确认: ...`; update it every round and use it to avoid re-asking answered questions.
 
 Example (adapt the wording to the user's language):
 
@@ -86,7 +87,7 @@ After all questions are done, deliver the final summary: the conclusion in one o
 - A. Document only - produce a document now; decide about development later.
 - B. Conclusion only - no document.
 - C. Document and start building - produce the document, then end the skill workflow; if the user continues into development, treat it as normal agent work outside the skill.
-For A or C, confirm the document type and audience using a short menu - requirements, development, process, or other - and expand to the full list only when "other" is chosen (test & acceptance, project plan, decision record, user manual, custom). Save the document as a Markdown (.md) file after confirming the filename and location; produce a detailed, complete version in the user's language, only after explicit agreement.
+For A or C, confirm the document type and audience using a short menu - requirements, development, process, or other - and expand to the full list only when "other" is chosen (test & acceptance, project plan, decision record, user manual, custom). Save the document as a Markdown (.md) file after confirming the filename and location; if the target file already exists, ask for explicit confirmation before overwriting. Produce a detailed, complete version in the user's language, only after explicit agreement.
 Question bank: [question-tiers.md](references/question-tiers.md) (Stage 5). Document templates: [requirement-template.md](references/requirement-template.md). Improvement ideas: [improvement-checklist.md](references/improvement-checklist.md).
 
 ## References

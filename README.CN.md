@@ -88,6 +88,8 @@ dont/
 ├── SKILL.md                      # 核心工作流（五阶段）
 ├── agents/
 │   └── openai.yaml               # UI 元数据
+├── scripts/
+│   └── github_search.py          # GitHub 仓库搜索辅助脚本
 └── references/
     ├── question-tiers.md         # 各阶段问题清单与退出条件
     ├── search-and-comparison.md  # 搜索规则与对比格式

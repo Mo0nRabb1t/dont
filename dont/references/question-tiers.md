@@ -2,6 +2,10 @@
 
 Question banks and exit rules for each stage. Ask one or a few questions at a time, prefer choice-style questions, and go deeper when an answer is vague or important. Stop early when the user asks for a direct conclusion. In every round, number questions (1., 2., 3.) and letter options (A., B., C.), and invite shorthand answers like "1A" or "A1" (see SKILL.md > Conversation Format).
 
+## Round Limits
+
+- Each stage runs at most 2-3 rounds unless the user explicitly asks to continue. After the limit, record the remaining unknowns and move to the next stage; do not keep asking.
+
 ## Stage 1 - Intent Understanding
 
 Purpose: understand the shallow intent first, then restate an optimized understanding for confirmation.
@@ -48,7 +52,8 @@ Purpose: find existing solutions first, then understand the user's background.
 Flow:
 1. Search for existing solutions, similar products, and similar-feature artifacts (no platform limit, GitHub primary, including agents and skills). Follow [search-and-comparison.md](search-and-comparison.md). Do not ask permission to search by default; if the user has asked for confirmation before actions, or the platform requires it, ask first. The user can interrupt or skip it anytime.
 2. If relevant results are found, present a comparison table (up to 5 candidates); do not ask for a path choice here - that belongs to Stage 4 (Decision Conclusion).
-3. Then ask about the user's background.
+3. If no relevant results are found or all sources are exhausted, tell the user, record existing-solution coverage as none found/unknown, and continue with the background questions; do not keep hunting.
+4. Then ask about the user's background.
 
 Background question bank (ask 3-6):
 - How much time can you invest: weeks, months, or hobby-level effort?
@@ -75,7 +80,7 @@ If the suggestion is not to build, present alternatives and end the workflow; do
 
 Purpose: deepen the requirements only after the user decides to build.
 
-Question bank (ask 5-10, choosing by product type):
+Question bank (ask 5-10 in total, split into rounds of at most 5 questions each, choosing by product type):
 - Goals & success: what does success look like? How would you measure it?
 - Users: who exactly uses it? What is the main job-to-be-done?
 - Core features (MVP): what is the minimum set of features to be usable?

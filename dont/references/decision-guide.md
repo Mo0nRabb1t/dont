@@ -1,13 +1,22 @@
 # Decision Guide
 
-Synthesize the interview into a suggestive conclusion. Weigh four factors; no single factor is absolute.
+Synthesize the interview into a suggestive conclusion by checking the four "don't build" reasons in order. No single check is absolute; require evidence for each one.
 
-## Factors
+## Check Order
 
-1. Existing solutions - ideas already covered by mature projects favor don't-build or adapt.
-2. Cost/benefit - time, money, and maintenance vs the value gained.
-3. Feasibility - the user's skill, available tech, and ability to finish.
-4. Purpose - learning, commercial, portfolio, or personal use changes the bar:
+1. Covered by an existing solution - if a mature project already covers the core need, recommend use existing or adapt existing; name the best fit and the required delta.
+2. Too hard to build - if the user cannot realistically finish it with current time, skill, or tools, recommend don't build, a smaller scope, or use existing.
+3. Cost exceeds value - if time, money, or maintenance outweigh the value gained, recommend don't build or a smaller version.
+4. Need is not real - if no real user or pain point exists beyond "it would be cool", recommend don't build.
+
+For each check that supports "don't build", cite what the user said or the search evidence and give a concrete alternative.
+
+## Weight Hints
+
+- If an agent will do the development, difficulty and cost still matter but count less than whether an existing solution covers the need; do not ignore feasibility entirely.
+- If the purpose is learning or portfolio, existing-solution coverage counts less; learning value and a presentable, finished result count more.
+- If the purpose is commercial, real differentiation and cost/benefit dominate.
+- Purpose still changes the bar:
    - Learning: build even if alternatives exist, but keep scope small.
    - Commercial: require real differentiation or a clear niche.
    - Portfolio: build something presentable and finished.

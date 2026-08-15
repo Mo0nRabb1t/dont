@@ -88,6 +88,8 @@ dont/
 ├── SKILL.md                      # Core workflow (five stages)
 ├── agents/
 │   └── openai.yaml               # UI metadata
+├── scripts/
+│   └── github_search.py          # GitHub repository search helper
 └── references/
     ├── question-tiers.md         # Question banks and exit rules per stage
     ├── search-and-comparison.md  # Search rules and comparison format

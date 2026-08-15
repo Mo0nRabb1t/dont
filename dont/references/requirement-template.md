@@ -1,6 +1,6 @@
 # Document Templates
 
-Produce a document only after the user picks A or C in the delivery choice (document only / document and start building; see SKILL.md). The document expands the constraint summary already delivered in the final summary (goal and success metric, P0 feature list, out-of-scope list, acceptance criteria, key risks). First confirm the document type and audience, then use the matching template. Save the document as a Markdown (.md) file; confirm the filename and location with the user. Write in the user's language and produce detailed, complete content covering every section.
+Produce a document only after the user picks A or C in the delivery choice (document only / document and start building; see SKILL.md). The document expands the constraint summary already delivered in the final summary (goal and success metric, P0 feature list, out-of-scope list, acceptance criteria, key risks). First confirm the document type and audience, then use the matching template. Save the document as a Markdown (.md) file; confirm the filename and location with the user. If the target file already exists, ask for explicit confirmation before overwriting. Write in the user's language and produce detailed, complete content covering every section.
 
 ## Type Selection
 
